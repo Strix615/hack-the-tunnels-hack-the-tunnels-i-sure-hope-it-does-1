@@ -6,10 +6,12 @@
   &__products {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
 
     a {
       text-decoration: none;
       color: inherit;
     }
+
   }
 }
