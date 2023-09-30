@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Page, ProductPreviewCard } from "../../components";
 import { ServiceAPI } from "../../infrastructure";
 import "./Home.style.scss";
+import { useMediaPredicate } from "react-media-hook";
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -16,12 +17,24 @@ function Home() {
     fetchData();
   }, []);
 
+  function changeFunc(){
+    let preferredTheme = "light"
+    
+    if (preferredTheme === "light"){
+      preferredTheme = "dark"
+    }
+    else {
+      preferredTheme = "light"
+    }
+  }
+
   return (
     <Page>
       <div className="home-page">
         <h1 className="home-page__title">Home</h1>
         <h2>Products:</h2>
         <p>"Hello World"</p>
+        <button onClick={changeFunc}>Change color theme</button>
         <div className="home-page__products">
           {products.map((product) => (
             <Link to={`/products/${product.id}`} key={`${product.id}`}>
