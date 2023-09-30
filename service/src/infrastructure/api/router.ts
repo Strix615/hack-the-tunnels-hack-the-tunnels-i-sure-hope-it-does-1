@@ -10,7 +10,7 @@ const getAPIRoot = async (_: Request, response: Response) => {
 };
 
 router.get("/", getAPIRoot);
-router.use("/ ", AccountRouter);
+router.use("/", AccountRouter);
 router.use("/orders", OrderRouter);
 router.use("/products", ProductRouter);
 
