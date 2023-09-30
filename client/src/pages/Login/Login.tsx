@@ -17,6 +17,7 @@ function Login() {
       //"admin@email.com", "password"
       setMessage(message);
     } catch (error) {
+      setMessage("Inorrect login email or password")
       console.log(error);
     }
   };
