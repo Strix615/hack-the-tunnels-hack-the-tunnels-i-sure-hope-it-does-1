@@ -5,12 +5,12 @@ const router = express.Router();
 
 const getAPIRoot = async (_: Request, response: Response) => {
   response.json({
-    message: "Hello World",
+    message: "Hello world",
   });
 };
 
 router.get("/", getAPIRoot);
-router.use("/", AccountRouter);
+router.use("/ ", AccountRouter);
 router.use("/orders", OrderRouter);
 router.use("/products", ProductRouter);
 
