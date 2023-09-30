@@ -8,15 +8,19 @@ function Login() {
   const [message, setMessage] = useState(null);
   const { loggedIn, login } = useAccountContext();
   const navigate = useNavigate();
+  const [email, setEmail] = useState("email")
+  const [password, setPassword] = useState("password")
 
   const attemptLogin = async () => {
     try {
-      const message = await login("admin@email.com", "password");
+      const message = await login(email, password);
+      //"admin@email.com", "password"
       setMessage(message);
     } catch (error) {
       console.log(error);
     }
   };
+
 
   useEffect(() => {
     if (loggedIn() === true) {
@@ -28,6 +32,8 @@ function Login() {
     <Page>
       <div className="login-page">
         <h1>Login</h1>
+        <input placeholder="email" onChange={(e) => setEmail(e.target.value)}/>
+        <input placeholder="password" onChange={(e) => setPassword(e.target.value)}/>
         <button onClick={() => attemptLogin()}>
           Login (as user set in code)
         </button>
@@ -36,5 +42,7 @@ function Login() {
     </Page>
   );
 }
+
+
 
 export default Login;
